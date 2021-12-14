@@ -4,9 +4,9 @@ import { useAppSelector } from '../redux/hooks';
 import { InputSwitch } from 'primereact/inputswitch';
 import { actionChangeWmsLayerVisibility } from '../redux/action/wms';
 import { useState } from 'react';
-import { actionChangeInfoVisibility, actionSetInfo } from '../redux/action/info';
-import { Button } from 'primereact/button';
+import { actionChangeInfoVisibility } from '../redux/action/info';
 import { actionChangeWfsLayerVisibility } from '../redux/action/wfs';
+
 const SidebarContainer = () => {
 
     const wmsLayers = useAppSelector(state => state.wms.layers);
@@ -33,12 +33,12 @@ const SidebarContainer = () => {
 
     return (
         <div>
-            <br />
-            <br />
-            WMS LAYERS
+            <div className="SidebarRowTitle">
+                WMS LAYERS
+            </div>
             {wmsLayers.map((l, index) => {
                 return (
-                    <div className="SidebarRow" key={index}>
+                    <div className="SidebarRowContent" key={index}>
                         {l.layername}
                         <InputSwitch
                             checked={l.visible}
@@ -48,14 +48,12 @@ const SidebarContainer = () => {
                 )
             }
             )}
-            <br />
-            <br />
-            <br />
-            <br />
-            WFS LAYERS
+            <div className="SidebarRowTitle">
+                WFS LAYERS
+            </div>
             {wfsLayers.map((l, index) => {
                 return (
-                    <div className="SidebarRow" key={index}>
+                    <div className="SidebarRowContent" key={index}>
                         {l.layername}
                         <InputSwitch
                             checked={l.visible}
@@ -65,9 +63,7 @@ const SidebarContainer = () => {
                 )
             }
             )}
-            {/* <div className="info-button">
-                <Button onClick={() => dispatch(actionSetInfo(['Merhaba hahah']))}>Info!</Button>
-            </div> */}
+
             <div className="InfoSwitch">
                 Info Al
                 <InputSwitch checked={infoState} onChange={e => changeInfoState(e.value)} />

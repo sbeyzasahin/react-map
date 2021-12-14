@@ -9,13 +9,13 @@ import { actionInitWmsLayers } from './redux/action/wms';
 import { useAppSelector } from './redux/hooks';
 import WfsLayer from './components/map/wfs-layer/WfsLayer';
 import { actionInitWfsLayer } from './redux/action/wfs';
-
+import {Sidebar} from 'primereact/sidebar';
 function App() {
   const infoBoxVisibility = useAppSelector(state => state.info.visible);
   const wmsLayers = useAppSelector(state => state.wms.layers);
   const wfsLayers = useAppSelector(state => state.wfs.layers);
   const dispatch = useDispatch()
-  
+
   useEffect(() => {
     dispatch(actionInitWmsLayers())
     dispatch(actionInitWfsLayer())
@@ -23,9 +23,9 @@ function App() {
 
   return (
     <div className="App">
-      <div className="sidebar" >
-        <SidebarContainer />
-      </div>
+        <Sidebar visible={true} showCloseIcon={false} onHide={() => {}} modal={false}>
+          <SidebarContainer />
+        </Sidebar>
       <div className="map-container" >
         <Map>
           {

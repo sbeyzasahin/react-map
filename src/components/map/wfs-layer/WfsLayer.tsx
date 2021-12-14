@@ -18,7 +18,7 @@ export default function WfsLayer(props: Props) {
         const vectorLayer = new VectorLayer({
             source: new VectorSource({
                 format: new GeoJSON({}),
-                url: props.url + props.serviceName + ':' + props.layerName + '&maxFeatures=50&outputFormat=application%2Fjson',
+                url: props.url + props.serviceName + ':' + props.layerName + '&outputFormat=application%2Fjson',
             })
         })
         t.current = vectorLayer;
