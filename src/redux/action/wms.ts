@@ -6,17 +6,17 @@ export const actionInitWmsLayers = () => (dispatch: AppDispatch) => {
         {
             url: 'https://kampus.ankageo.com/geoserver/kampus/wms',
             layername: ['Fakulte_usr'],
-            visible: true,
+            visible: false,
         },
         {
             url: 'https://kampus.ankageo.com/geoserver/kampus/wms',
             layername: ['Rektorluk_usr'],
-            visible: true,
+            visible: false,
         },
         {
             url: 'https://kampus.ankageo.com/geoserver/kampus/wms',
             layername: ['Sosyal Tesis_usr'],
-            visible: true,
+            visible: false,
         }
     ]
     dispatch({

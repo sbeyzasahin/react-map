@@ -7,25 +7,25 @@ export const actionInitWfsLayer = () => (dispatch: AppDispatch) => {
             url: 'https://kampus.ankageo.com/geoserver/kampus/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=',
             servicename: 'kampus',
             layername: 'Fakulte_usr',
-            visible: true
+            visible: false
         },
         {
             url: 'https://kampus.ankageo.com/geoserver/kampus/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=',
             servicename: 'kampus',
             layername: 'Rektorluk_usr',
-            visible: true
+            visible: false
         },
         {
             url: 'https://kampus.ankageo.com/geoserver/kampus/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=',
             servicename: 'kampus',
             layername: 'Yurtlar_usr',
-            visible: true
+            visible: false
         },
         {
             url: 'https://kampus.ankageo.com/geoserver/kampus/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=',
             servicename: 'kampus',
             layername: 'atm_usr',
-            visible: true
+            visible: false
         },
     ]
     return dispatch({
