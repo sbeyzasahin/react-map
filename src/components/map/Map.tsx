@@ -4,12 +4,11 @@ import { Map as OlMap, MapBrowserEvent } from 'ol';
 import OSM from 'ol/source/OSM';
 import TileLayer from 'ol/layer/Tile';
 import View from 'ol/View';
+import Select from 'ol/interaction/Select';
 import './Map.scss'
 import { MapContext } from './MapContext';
-import { useAppSelector } from '../../redux/hooks';
 import { actionSetInfo } from '../../redux/action/info';
 import { useDispatch } from 'react-redux';
-
 interface Props { }
 
 const Map = (props: PropsWithChildren<Props>) => {
@@ -34,10 +33,9 @@ const Map = (props: PropsWithChildren<Props>) => {
     });
 
     t.current = map;
-    map.on('click', mapClick);
-
-
+    map.addInteraction(new Select())
     setOlMap(map);
+    map.on('click', mapClick);
     return () => map.dispose();
   }, []);
 
